@@ -1,0 +1,13 @@
+extend layout
+
+block script
+    script(src='#{task.apiurl}' )    
+    
+    script.
+        !{task.jscode}
+        
+    script.
+        $( document ).ready(function() {
+            console.log(!{JSON.stringify(task.input)});
+            main(!{JSON.stringify(task.input)});
+        });

@@ -1,0 +1,44 @@
+.vignette {
+  min-height: 150px;
+  box-shadow: 0px 0px 5px #202a36;
+}
+.vignette-contenant {
+  position: inherit;
+  top: 10px;
+  left: 10px;
+}
+.vignette-contenant-n21 {
+  position: absolute;
+  width: 96%;
+  height: 96%;
+}
+.vignette-contenant-n21 .input {
+  position: relative;
+  float: left;
+}
+.vignette-contenant-n21 .input input {
+  background: none;
+  border: none;
+  box-shadow: 1px 1px 3px #202a36;
+}
+.vignette-contenant-n2 .input input[name="body"],
+textarea {
+  width: 400px;
+  height: 250px;
+}
+.vignette-contenant-n21 .submit input {
+  background: none;
+  border: none;
+  box-shadow: 1px 1px 3px #202a36;
+}
+.brand1 {
+  position: absolute;
+  bottom: 0px;
+  right: 2%;
+  font-style: italic;
+}
+.delete1 {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}

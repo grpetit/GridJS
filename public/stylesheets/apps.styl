@@ -1,0 +1,51 @@
+.apps
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  width: 500px
+  //height: inherit
+  //background-color: rgb(25, 252, 254)
+  //overflow: auto
+
+.app-content1
+  //display: inline-block
+  //position: relative
+  //top: 60px
+  //-webkit-column-count: 2
+  //overflow: auto
+  //overflow-x:hidden
+  //overflow-y:hidden
+  //color: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0))
+
+.apps-header
+  position: fixed
+  top: 0px
+  left: 200px
+
+.apps-footer
+  position: fixed
+  bottom: 0px
+  right: 100px
+  //width: 100%
+  clear: both
+  //background-color: white
+.apps-footer-old
+  content: "" /* pour créer un élément fantôme */
+  pointer-events: none /* pour que l'élément n'empêche pas la sélection de texte (navigateurs supportant cette propriété) */
+  width: 100% /* pour que l'élément fantôme couvre la largeur entière et 30% de la hauteur */
+  height: 10%
+  position: absolute
+  left: 0
+  bottom: 0
+  /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
+  background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1))
+  background: -moz-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1))
+  background: -ms-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1))
+  background: -o-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1))
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1))
+
+.sign
+  position: relative
+  bottom: 0px
+  background: green
+

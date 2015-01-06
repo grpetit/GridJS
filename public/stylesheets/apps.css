@@ -1,0 +1,40 @@
+.apps {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+.apps-header {
+  position: fixed;
+  top: 0px;
+  left: 200px;
+}
+.apps-footer {
+  position: fixed;
+  bottom: 0px;
+  right: 100px;
+  clear: both;
+}
+.apps-footer-old {
+  content: "";
+/* pour créer un élément fantôme */
+  pointer-events: none;
+/* pour que l'élément n'empêche pas la sélection de texte (navigateurs supportant cette propriété) */
+  width: 100%;
+/* pour que l'élément fantôme couvre la largeur entière et 30% de la hauteur */
+  height: 10%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+/* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
+  background: -webkit-linear-gradient(rgba(255,255,255,0), #fff);
+  background: -moz-linear-gradient(rgba(255,255,255,0), #fff);
+  background: -ms-linear-gradient(rgba(255,255,255,0), #fff);
+  background: -o-linear-gradient(rgba(255,255,255,0), #fff);
+  background: linear-gradient(rgba(255,255,255,0), #fff);
+}
+.sign {
+  position: relative;
+  bottom: 0px;
+  background: #008000;
+}
