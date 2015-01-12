@@ -1,0 +1,19 @@
+extend layout
+block script
+    h2 List of tasks sent to the server
+    table(style="width:100%")
+        tr
+            td.
+                Api Url
+            td.
+                jsCode
+            td.
+                input
+            td.
+                Status
+        each task in tasks_list
+            tr
+                td !{task.apiurl}
+                td !{task.jscode}
+                td !{task.input}
+                td !{task.status}

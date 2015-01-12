@@ -7,6 +7,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
+var database_manager = require('./gridEngine/database_manager');
 var app = express();
 
 app.configure(function(){
@@ -38,11 +39,40 @@ var job =   {
             }
 var tasknum = 0;
 
+/**
+  * Get the next task to be done (action performed by a computing engine).
+  */
 //console.log(JSON.stringify(job, null, 4));
 app.get('/task', function(req, res) {
     console.log('task '+tasknum);
     //console.log(JSON.stringify(job.tasks[tasknum], null, 4));
     res.render('task', {title: job.name, task: job.tasks[tasknum]} );
+});
+
+/**
+ *  Add tasks to the pool (client-side)
+ */
+
+// Job form generation
+app.get('/add_job', function(req, res) {
+    res.render('add_job');
+});
+
+// Job form submission : store tasks in DB
+app.post('/add_job', function(req, res) {
+  var form = {externalApiUrl : req.param('externalApiUrl'), embeddedApi : req.param('embeddedApi'), tasks : req.param('tasks') };
+  database_manager.add_job(form.externalApiUrl, form.embeddedApi, form.tasks);
+  res.render('job_added', {externalApiUrl : req.param('externalApiUrl'), embeddedApi : req.param('embeddedApi'), tasks : req.param('tasks') });
+});
+
+/**
+  * Display all the tasks that were sent to the server
+  */
+app.get('/tasks_list', function(req, res) {
+  // get_all_tasks will perform the callback below after retrieving all rows (tasks) in the database.
+  database_manager.get_all_tasks(function(err, _tasks_list) {
+    res.render('tasks_list', {tasks_list : _tasks_list} );
+  }); 
 });
 
 
@@ -56,11 +86,9 @@ app.post('/result', function(req, res) {
         res.send('end');
     else
         res.send('next');
-    
-    
 });
 
-
 http.createServer(app).listen(app.get('port'), function(){
+  database_manager.open_db();
   console.log("Express server listening on port " + app.get('port'));
 });
